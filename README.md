@@ -1,3 +1,29 @@
+## Easytask admin
+One brief administration system for easytask(https://github.com/995933447/easytask).Developing base on laravel-admin(https://laravel-admin.org/) framework.It's very easy to deploy and do second development.
+
+一个简洁的easytask(https://github.com/995933447/easytask)管理后台。基于laravel-admin开发(https://laravel-admin.org/)。非常容易部署以及二次开发。
+
+## How to use
+### Step:
+1.Install nginx/apache+mysql+php to your machine.
+
+安装nginx/apache+mysql+php到你的机器上。
+
+2.Import sql file to mysql.
+
+导入sql文件。
+```
+use yourdatabase;
+source easytask-admin/resources/sqls/admin.sql;
+```
+3.Configure website root of http server(nginx/apacha/etc...) to easytask-admin/public. Or you can use php to merely run a debug server like this example (never using in production envirement because unstable):
+
+配置http服务的网站目录到easytask-admin/public。或者你可以用php仅仅纯粹地运行一个debug服务，像下面的例子那样(但是不要尝试在你的生产环境中使用因为不稳定):
+```
+cd easytask-admin
+php -S 0.0.0.0:8000 -t public
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
