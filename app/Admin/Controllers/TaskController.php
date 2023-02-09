@@ -40,7 +40,7 @@ class TaskController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        // $grid->column('updated_at', __('Updated at'));
         $grid->column('deleted_at', __('Stopped at'))->display(function($val) {
             if ($val == 0) {
                 return "";
@@ -67,7 +67,7 @@ class TaskController extends AdminController
             };
         });
         $grid->column('server.name', __('Callback srv name'));
-        $grid->column('callback_srv_id', __('Callback srv id'));
+        // $grid->column('callback_srv_id', __('Callback srv id'));
         $grid->column('run_times', __('Run times'));
         $grid->column('allow_max_run_times', __('Allow max run times'))->display(function($val) {
             if ($val == 9223372036854775807) {
@@ -75,13 +75,13 @@ class TaskController extends AdminController
             }
             return $val;
         });
-        $grid->column('max_run_time_sec', __('Max run time sec'))->display(function($val) {
-            if ($val == 0) {
-                return __("Not limit");
-            }
-            return $val;
-        });
-        $grid->column('callback_path', __('Callback path'));
+        // $grid->column('max_run_time_sec', __('Max run time sec'))->display(function($val) {
+        //     if ($val == 0) {
+        //         return __("Not limit");
+        //     }
+        //     return $val;
+        // });
+        // $grid->column('callback_path', __('Callback path'));
         $grid->column('biz_id', __('Biz id'));
         $grid->disableCreateButton(true);
 
@@ -162,7 +162,16 @@ class TaskController extends AdminController
             });
             $val->run_times();
             $val->req_snapshot();
-            $val->resp_snapshot();
+            $val->resp_snapshot()->display(function($val) {
+                $respContent = "";
+                if ($val != "") {
+                    $respSnapshot = json_decode($val, true);
+                    if (array_key_exists("resp_raw", $respSnapshot)) {
+                        $respContent = $respSnapshot["resp_raw"];
+                    };
+                };
+                return $respContent; 
+            });
             $val->callback_err();
         });
 
