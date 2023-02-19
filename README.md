@@ -1,7 +1,7 @@
 ## Easytask admin
 One brief administration system for easytask(https://github.com/995933447/easytask). Developing base on laravel-admin(https://laravel-admin.org/) framework.It's very easy to deploy and do second development.
 
-一个简洁的easytask(https://github.com/995933447/easytask)管理后台。基于laravel-admin开发(https://laravel-admin.org/)。非常容易部署以及二次开发。
+一个简洁的easytask (https://github.com/995933447/easytask) 管理后台。基于laravel-admin开发 (https://laravel-admin.org/) 。非常容易部署以及二次开发。
 
 ## How to use
 ### Step:
